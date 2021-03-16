@@ -69,6 +69,7 @@ subquestion: |
   Who was this form prepared by?               | ${ p_name }
   Is the law firm of the lawyer applicable?    | ${ lf_applicable}
   % if lf_applicable == 'Yes':
+  **Law firm Information**                     | **Answers Given**
   Firm name                                    | ${ lf_name }
   Telephone number                             | ${ t_number }
   Fax number                                   | ${ f_number }
