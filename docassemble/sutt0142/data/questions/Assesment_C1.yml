@@ -1,0 +1,149 @@
+# Basic demonstration of using multiple endpoints for an interview
+---
+objects:
+  - endpoint: DADict
+---
+# This is our welcome screen.  We can choose to exit here
+# if we don't wish to accept the disclaimer
+mandatory: True
+question: Federal Court Form 1 Application
+subquestion: | # Add more in explanation
+  Welcome to the Federal Court Form 1 application.  We hope you enjoy
+  using it!
+ 
+  ***Disclaimer:***  
+  **If a form is completed it must be checked by a lawyer. This application does not give legal advice.**
+
+  If you continue you accept these terms.
+buttons:
+  - "I accept and want to continue": continue
+  - "I do not accept": exit
+    url: http://www.courts.sa.gov.au/
+---
+# This code block drives the interview.  It determines whether the initial
+# eligibility requirements have been met and if they are directs the
+# user to the 'eligible' endpoint.  Otherwise, it directs the user to the
+# 'ineligible' endpoint.  Each endpoint displays an exit screen
+# For the purposes of this exercise, a user is eligible to continue if they
+# are between 18 and 65 and an Australian citizen.
+# Note: This code block must be mandatory
+mandatory: True
+code: |
+  if LVSCourt == 'Federal Court' or LVSCourt == 'Federal Circuit Court':
+    endpoint['eligible']
+  else:
+    endpoint['ineligible']
+---
+# This question block asks the questions to drive the code block above.
+question: Court Selection
+fields:
+  - Which court is the form to be completed for?: LVSCourt
+    datatype: radio
+    choices:
+      - Supreme Court
+      - District Court
+      - Magistrates Court
+      - Federal Court
+      - Federal Circuit Court
+---
+# This is the ineligible endpoint
+event: endpoint['ineligible']
+question: Eligibility requirements not met
+subquestion:
+  This app is only designed to prepare forms for the Federal Court and Federal     Circuit Court.
+buttons:
+  - Exit: exit
+    url: http://www.courts.sa.gov.au/
+  - Restart: restart
+---
+# This is the eligible endpoint.
+event: endpoint['eligible']
+question: Completed Form 1
+subquestion: |
+  Questions asked | Answers given
+     -------------|--------------
+  Which court is the form to be completed for? | ${ LVSCourt }
+  Full name of the first applicant             | ${ fa_name }
+  Full name of first respondent                | ${ fr_name }
+  Appropriate state                            | ${ a_state }
+  Division                                     | ${ di_vision }
+  Date                                         | ${ d_ate } #maybe format
+  Who is signing this document?                | ${ signed_by }
+  Signed by (Full Name)                        | ${ sb_name }
+  Who is this form being filed on behalf of?   | ${ b_name }
+  Who was this form prepared by?               | ${ p_name }
+  Is the law firm of the lawyer applicable?    | ${ lf_applicable}
+  % if lf_applicable == 'Yes':
+  Firm name                                    | ${ lf_name }
+  Telephone number                             | ${ t_number }
+  Fax number                                   | ${ f_number }
+  Email                                        | ${ e_mail}
+  Address                                      | ${ lf_address }
+  % endif
+attachment:
+  docx template file: DocAssemble_Form1.docx
+  valid formats:
+      - pdf
+buttons:
+  - Exit: exit
+    url: http://www.courts.sa.gov.au/
+  - Restart: restart
+---
+question: Form 1 Information
+fields: 
+  - Full name of the first applicant: fa_name
+  - Full name of first respondent: fr_name
+  - Appropriate state: a_state
+    datatype: dropdown
+    choices:
+      - Australian Capital Territory
+      - New South Wales
+      - Northern Territory
+      - Queensland
+      - South Australia
+      - Tasmania
+      - Victoria
+      - Western Australia
+  - Division: di_vision
+    datatype: radio
+    choices:
+      -	Corporations
+      -	Criminal
+      -	Employment
+      -	General
+  - Date: d_ate
+    datatype: date # need to change format to AGLC-complaint
+  - Who is signing this document? (eg Applicant / Lawyer for the Applicant):         signed_by
+  - Signed by (Full Name): sb_name
+---
+question: Form 1 Information continued
+fields: 
+  - Who is this form being filed on behalf of? (name & role of party): b_name
+  - Who was this form prepared by? (name of person/lawyer): p_name
+  - Is the law firm of the lawyer applicable?: lf_applicable
+    datatype: radio
+    choices:
+      - Yes
+      - No
+  - Firm name: lf_name
+    show if: 
+      variable: lf_applicable
+      is: 'Yes'
+  - Telephone number: t_number
+    show if: 
+      variable: lf_applicable
+      is: 'Yes'
+  - Fax number: f_number
+    show if: 
+      variable: lf_applicable
+      is: 'Yes'
+  - E-mail: e_mail
+    datatype: email
+    show if: 
+      variable: lf_applicable
+      is: 'Yes'
+  - Address for service (include state and postcode): lf_address
+    show if: 
+      variable: lf_applicable
+      is: 'Yes'
+
