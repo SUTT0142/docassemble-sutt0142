@@ -40,7 +40,7 @@ fields:
 event: endpoint['ineligible']
 question: Eligibility requirements not met
 subquestion: |
-  This app is only designed to prepare forms for the **Federal Court** and         **Federal Circuit Court**.
+  This app is only designed to prepare forms for the **Federal Court** and         **Federal Circuit Court**. For more information click the exit button and you     will be taken to the FCA website.
 buttons:
   - Exit: exit
     url: http://www.courts.sa.gov.au/
@@ -52,7 +52,7 @@ question: Completed Form 1
 subquestion: |
   **Page Description**
   
-  This page displays the questions asked and your answers given throughout the     application. At the bottom of the page you can download a completed Form 1       with your answers as a pdf or have it sent to an email address of your           choosing.
+  This page displays the questions asked and your answers given throughout the     application. At the bottom of the page you can download a completed Form 1       with your answers as a pdf or have it sent to an email address of your           choosing. For more information click the exit button and you     will be taken   to the FCA website.
   
   
   Questions asked | Answers given
@@ -144,4 +144,3 @@ fields:
     show if: 
       variable: lf_applicable
       is: 'Yes'
-
