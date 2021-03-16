@@ -5,11 +5,12 @@ objects:
 mandatory: True
 question: Federal Court Form 1 Application
 subquestion: | # Add more in explanation
-  Welcome to the Federal Court Form 1 application.  We hope you enjoy
-  using it!
+  **Application Description**
+  
+  Welcome to the Federal Court Form 1 application. This application will check if   you are eligible to complete a Federal Court Form 1. If elegible you will be     asked a number of questions. You can review your answers, download a completed   Form 1 with your answers, and email a completed Form 1 to yourself at the end     of the application.
  
   ***Disclaimer:***  
-  **If a form is completed it must be checked by a lawyer. This application does not give legal advice.**
+  **If a form is completed it must be checked by a lawyer. This application does   not give legal advice.**
 
   If you continue you accept these terms.
 buttons:
@@ -38,8 +39,8 @@ fields:
 # This is the ineligible endpoint
 event: endpoint['ineligible']
 question: Eligibility requirements not met
-subquestion:
-  This app is only designed to prepare forms for the Federal Court and Federal     Circuit Court.
+subquestion: |
+  This app is only designed to prepare forms for the **Federal Court** and         **Federal Circuit Court**.
 buttons:
   - Exit: exit
     url: http://www.courts.sa.gov.au/
@@ -49,6 +50,11 @@ buttons:
 event: endpoint['eligible']
 question: Completed Form 1
 subquestion: |
+  **Page Description**
+  
+  This page displays the questions asked and your answers given throughout the     application. At the bottom of the page you can download a completed Form 1       with your answers as a pdf or have it sent to an email address of your           choosing.
+  
+  
   Questions asked | Answers given
      -------------|--------------
   Which court is the form to be completed for? | ${ LVSCourt }
@@ -56,7 +62,7 @@ subquestion: |
   Full name of first respondent                | ${ fr_name }
   Appropriate state                            | ${ a_state }
   Division                                     | ${ di_vision }
-  Date                                         | ${ d_ate } #maybe format
+  Date                                         | ${ d_ate } 
   Who is signing this document?                | ${ signed_by }
   Signed by (Full Name)                        | ${ sb_name }
   Who is this form being filed on behalf of?   | ${ b_name }
@@ -102,12 +108,14 @@ fields:
       -	General
   - Date: d_ate
     datatype: date 
-  - Who is signing this document? (eg Applicant / Lawyer for the Applicant):         signed_by
+  - Who is signing this document?: signed_by
+    hint: e.g. Applicant / Lawyer for the Applicant
   - Signed by (Full Name): sb_name
 ---
 question: Form 1 Information continued
 fields: 
   - Who is this form being filed on behalf of? (name & role of party): b_name
+    hint: e.g. John Smith, Applicant
   - Who was this form prepared by? (name of person/lawyer): p_name
   - Is the law firm of the lawyer applicable?: lf_applicable
     datatype: radio
