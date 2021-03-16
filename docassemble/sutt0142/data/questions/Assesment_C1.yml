@@ -1,10 +1,7 @@
-# Basic demonstration of using multiple endpoints for an interview
 ---
 objects:
   - endpoint: DADict
 ---
-# This is our welcome screen.  We can choose to exit here
-# if we don't wish to accept the disclaimer
 mandatory: True
 question: Federal Court Form 1 Application
 subquestion: | # Add more in explanation
@@ -20,13 +17,6 @@ buttons:
   - "I do not accept": exit
     url: http://www.courts.sa.gov.au/
 ---
-# This code block drives the interview.  It determines whether the initial
-# eligibility requirements have been met and if they are directs the
-# user to the 'eligible' endpoint.  Otherwise, it directs the user to the
-# 'ineligible' endpoint.  Each endpoint displays an exit screen
-# For the purposes of this exercise, a user is eligible to continue if they
-# are between 18 and 65 and an Australian citizen.
-# Note: This code block must be mandatory
 mandatory: True
 code: |
   if LVSCourt == 'Federal Court' or LVSCourt == 'Federal Circuit Court':
@@ -34,7 +24,6 @@ code: |
   else:
     endpoint['ineligible']
 ---
-# This question block asks the questions to drive the code block above.
 question: Court Selection
 fields:
   - Which court is the form to be completed for?: LVSCourt
@@ -112,7 +101,7 @@ fields:
       -	Employment
       -	General
   - Date: d_ate
-    datatype: date # need to change format to AGLC-complaint
+    datatype: date 
   - Who is signing this document? (eg Applicant / Lawyer for the Applicant):         signed_by
   - Signed by (Full Name): sb_name
 ---
