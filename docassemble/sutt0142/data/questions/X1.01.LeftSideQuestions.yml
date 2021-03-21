@@ -1,29 +1,6 @@
-# We put all the question block into this file.  We do 
-# this simply to be organised.  We want to separate the
-# actual questions we ask from the logic flow of the program
-# itself (which is in the main file).  That way it makes
-# the logic flow easier to identify as it's not
-# cluttered with questions
-#
-# NOTE:  This file should not contain any mandatory
-# question blocks
----
-# Asks the initial question
-# We populate MJFsue_reason with 'MJFpromisee' or 'MJFpromisor'.
-# These strings are easier work with than the long-form answer
-# we display to the user.
-# Ref: https://docassemble.org/docs/fields.html#radio
-#
-question: Why do you want to sue?
-fields:
-  - no label: MJFsue_reason
-    datatype: radio
-    choices:
-      - I paid for work that wasn't done: MJFpromisee
-      - Someody didn't pay me for work that I did: MJFpromisor
 ---
 # Stores the description of the work that was requested
-question: Describe the work you were tasked to complete
+question: Describe the work that was completed by you
 fields:
   - no label: LVSwork_requested
     datatype: area

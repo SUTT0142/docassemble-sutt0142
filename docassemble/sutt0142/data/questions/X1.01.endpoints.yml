@@ -92,7 +92,22 @@ content: |
   You should still seek legal advice for a formal legal opinion.
 
   Based on your responses:
+  % if MJFsue_reason == 'MJFpromisor':
+  % if LVScertainty != 'LVSagree_exact':
+  - You and the other person did not agree to do this work, or all of this work,
+    or there was other work done that was not agreed to.
+  % endif
+  % if not LVSconsideration:
+  - You never reached a firm agreement on how much to pay for the work done.
+  % endif
+  % if not LVScapacity:
+  - The other person was under 18.  It is possible in some circumstances to enter into
+    a contract with people under 18.  You should seek legal advice about whether your
+    situation meets these circumstances.
+  % endif
+  % endif
   
+  % if MJFsue_reason == 'MJFpromisee':
   % if MJFcertainty != 'MJFagree_exact':
   - You and the other person did not agree to do this work, or all of this work,
     or there was other work done that was not agreed to.
@@ -104,6 +119,7 @@ content: |
   - The other person was under 18.  It is possible in some circumstances to enter into
     a contract with people under 18.  You should seek legal advice about whether your
     situation meets these circumstances.
+  % endif
   % endif
 
 
