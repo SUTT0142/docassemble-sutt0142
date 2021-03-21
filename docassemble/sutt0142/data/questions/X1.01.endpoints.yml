@@ -92,6 +92,7 @@ content: |
   You should still seek legal advice for a formal legal opinion.
 
   Based on your responses:
+  
   % if MJFsue_reason == 'MJFpromisor':
   % if LVScertainty != 'LVSagree_exact':
   - You and the other person did not agree to do this work, or all of this work,
