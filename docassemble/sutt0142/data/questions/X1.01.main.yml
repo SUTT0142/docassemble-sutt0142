@@ -22,6 +22,7 @@
 include:
   - X1.01.questions.yml
   - X1.01.endpoints.yml
+  - X1.01.LeftSideQuestions.yml
 ---
 # We start off with a 'Welcome screen'.  Students should 
 # replace the boilerplate text with a meaningful explanation
@@ -65,7 +66,18 @@ code: |
   if MJFsue_reason == 'MJFpromisor':
     # Students will need to put logic in here
     # for the promisor part of the code
-    pass
+    LVSwork_requested
+    LVSpayment_agreed
+    
+    if LVScertainty == 'LVSagree_exact' and LVSconsideration == True and LVScapacity == True:
+      MJFcontract_exists = True
+    else:
+      MJFcontract_exists = False
+
+    # Now we know whether there is a contract or not we can display
+    # the final screen that contains a result and an explanation of why
+    endpoints['final_screen']
+    
   elif MJFsue_reason == 'MJFpromisee':
     # This is right side of the flowchart.  Off we go!
 
