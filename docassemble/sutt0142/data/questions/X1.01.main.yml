@@ -63,7 +63,7 @@ code: |
     LVSwork_requested
     LVSpayment_agreed
     
-    if LVScertainty == 'LVSagree_exact' and LVSconsideration == True and LVScapacity == True:
+    if LVScertainty == 'LVSagree_exact' and LVSconsideration == True and MJFcapacity == True:
       MJFcontract_exists = True
     else:
       MJFcontract_exists = False
