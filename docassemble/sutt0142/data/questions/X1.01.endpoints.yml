@@ -101,7 +101,7 @@ content: |
   % if not LVSconsideration:
   - You never reached a firm agreement on how much to pay for the work done.
   % endif
-  % if not LVScapacity:
+  % if not MJFcapacity:
   - The other person was under 18.  It is possible in some circumstances to enter into
     a contract with people under 18.  You should seek legal advice about whether your
     situation meets these circumstances.
