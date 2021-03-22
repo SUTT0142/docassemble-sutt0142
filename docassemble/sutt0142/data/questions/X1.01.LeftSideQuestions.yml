@@ -46,22 +46,5 @@ subquestion: |
   Was the other person an adult?
 yesno: LVScapacity
 ---
-# Question to ask if there is a written contract
-question: Written Contract
-subquestion: |
-  A 'written contract' can mean a formal contract document.
-  It can also mean any emails, texts or messages you send
-  or receive about the contract.
-  If your
-  messages contain information about:
 
-  - what work was meant to be done
-  - how much was going to be paid for that work
-  - who was going to do the work and who was going to pay
-
-  Then those messages may be enough to be a 'written contract'.
-fields:
-  - Do you or the other person have a 'written contract'?: MJFwritten_contract
-    datatype: yesnoradio
----
 
