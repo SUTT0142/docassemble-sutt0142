@@ -22,7 +22,6 @@
 include:
   - X1.01.questions.yml
   - X1.01.endpoints.yml
-  - X1.01.LeftSideQuestions.yml
 ---
 # We start off with a 'Welcome screen'.  Students should 
 # replace the boilerplate text with a meaningful explanation
@@ -34,13 +33,19 @@ include:
 mandatory: True
 question: Breach of Contract App
 subquestion: |
-  Welcome to the Breach of Contract App. This application is designed for people that want to sue because they have either paid for work that wasn’t completed, or completed work and weren’t paid. You will be asked a series of questions relating to your situation and the application will determine whether you might be able to sue or not and help you understand your options.
-  
-  ***Disclaimer:***  
-  **This application does not give legal advice. Please consult a lawyer for legal advice.**
+  This is the first or 'Welcome' screen that the user
+  sees when they run the app.  This screen should describe
+  what the app does to the user.
 
-  If you continue you accept these terms.
- 
+  The screen may also need to include a disclaimer, particularly
+  as this app is providing legal advice.
+
+  The screen should contain a click-through agreement indicating
+  the user agrees to the disclaimer and any other terms before
+  proceeding.
+
+  The screen should also give the user the option to exit the
+  app at this point
 buttons:
   - I agree and wish to continue: continue
   - I do not agree and wish to exit: exit
@@ -60,18 +65,7 @@ code: |
   if MJFsue_reason == 'MJFpromisor':
     # Students will need to put logic in here
     # for the promisor part of the code
-    LVSwork_requested
-    LVSpayment_agreed
-    
-    if LVScertainty == 'LVSagree_exact' and LVSconsideration == True and MJFcapacity == True:
-      MJFcontract_exists = True
-    else:
-      MJFcontract_exists = False
-
-    # Now we know whether there is a contract or not we can display
-    # the final screen that contains a result and an explanation of why
-    endpoints['final_screen']
-    
+    pass
   elif MJFsue_reason == 'MJFpromisee':
     # This is right side of the flowchart.  Off we go!
 
