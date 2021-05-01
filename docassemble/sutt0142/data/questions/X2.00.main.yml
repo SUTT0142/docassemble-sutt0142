@@ -77,7 +77,16 @@ subquestion:  |
   %endfor  
   % endif
   
-
+  % if HAAabor:
+  ### Services for Aboriginal and Torres Striaght Islanders
+  
+  These agencies offer services for specific to Aboriginal and Torres Striaght   Islanders.
+  
+  %for HAAdisplay_entry in HAAdisplay_atsi:
+  ${ HAAdisplay_entry['display_record'].show() }
+  %endfor  
+  % endif
+  
   % if HAAfamily == 'singles':
   ### Services for you
   % else:

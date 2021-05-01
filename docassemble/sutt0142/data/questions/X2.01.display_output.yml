@@ -10,6 +10,7 @@ content: |
 ---
 objects:
   HAAdisplay_pets: DAList.using(there_are_any=True, auto_gather=False)
+  HAAdisplay_atsi: DAList.using(there_are_any=True, auto_gather=False)
   HAAdisplay_other: DAList.using(there_are_any=True, auto_gather=False)
 ---
 # The following code blocks each extract a set of agencies
@@ -44,8 +45,23 @@ code: |
   
   HAAdisplay_pets.gathered = True
 ---
-# Other categories go here...
-# This is an exercise for students
+code: | 
+  HAAdisplay_atsi.clear()
+  for HAAagency in HAAqualifying_agencies:
+    # Add if the test passes and it hasn't been printed yet
+    if HAAagency.item('printed') == True:
+      # Don't do anything if already printed
+      pass
+    elif HAAagency.item('pets_test') == True:
+      # We add the text to display in the display list
+      HAAdisplay_atsi.append(HAAagency)
+      # And mark it as displayed
+      HAAagency['printed'] = True
+    else:
+      # Otherwise don't do anything
+      pass
+      
+    HAAdisplay_atsi.gathered = True
 ---
 # Finally, we display everything else.  Everything else
 # is every record in HAAqualifying_agencies that has
