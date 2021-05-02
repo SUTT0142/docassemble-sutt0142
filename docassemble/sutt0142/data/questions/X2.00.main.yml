@@ -78,7 +78,12 @@ subquestion:  |
   % endif
   
   % if HAAabor:
+      % if HAAfamily == 'singles':
   ### Services for Aboriginal and Torres Striaght Islanders
+      % else:
+  ### Services for Aboriginal and Torres Striaght Islanders, and their Families
+      % endif
+      
   
   These agencies offer services for specific to Aboriginal and Torres Striaght   Islanders.
   
@@ -87,8 +92,12 @@ subquestion:  |
   %endfor  
   % endif
   
-  % if HAAfamily == 'singles':
-  ### Services for you
+  % if HAAfamily == 'singles' and HAAabor:
+  ### Other Services for you
+  % elif HAAfamily == 'singles':
+  ###Services for you
+  % elif HAAfamily == 'family' and HAAabor:
+  ### Other Services for You and Your Family
   % else:
   ### Services for You and Your Family
   % endif
