@@ -29,7 +29,7 @@
        comes with colour picking software that will show you the RGB values
        for any colour you pick
     */
-    background-color: rgb(255,255,255) !important;
+    background-color: rgb(244,233,45) !important;
 }
 .navbar .navbar-brand{
     color : #000;
@@ -63,4 +63,43 @@
 }
 .navbar form button:hover{
     background-color: rgba(255,255,255,0.3);
+}
+
+.btn-primary{
+    color: rgb(0,0,0);
+    background-color: rgb(246,207,58);
+    border-color: rgb(246,207,58);
+}
+
+.btn-primary:hover{
+    color: rgb(0,0,0);
+    background-color: rgba(246,207,58,0.3);
+    border-color: rgba(246,207,58,0.3);
+}
+
+.btn-secondary{
+    color: rgb(0,0,0);
+    background-color: rgb(249,246,109);
+    border-color: rgb(249,246,109);
+}
+
+.btn-secondary:hover{
+    color: rgb(0,0,0);
+    background-color: rgba(249,246,109,0.3);
+    border-color: rgb(249,246,109,0.3);
+}
+.row{
+    margin-top: 15px;
+}
+
+.navbar form button {
+    background-color: rgb(244,233,45);
+}
+
+h3 {
+    color: rgb(245,209,42);
+}
+
+a {
+    color: rgb(213,168,35);
 }

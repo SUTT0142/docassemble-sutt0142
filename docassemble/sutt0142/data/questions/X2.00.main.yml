@@ -73,7 +73,7 @@ subquestion:  |
   care options for your pet.
 
   %for HAAdisplay_entry in HAAdisplay_pets:
-  ${ HAAdisplay_entry['display_record'].show() }
+  * ${ HAAdisplay_entry['display_record'].show() }
   %endfor  
   % endif
   
@@ -88,7 +88,8 @@ subquestion:  |
   These agencies offer services for specific to Aboriginal and Torres Straight   Islanders.
   
   %for HAAdisplay_entry in HAAdisplay_atsi:
-  ${ HAAdisplay_entry['display_record'].show() }
+  * ${ HAAdisplay_entry['display_record'].show() }
+  
   %endfor  
   % endif
   
@@ -107,7 +108,8 @@ subquestion:  |
   You should contact them as soon as you can to try an arrange emergency housing.
   
   %for HAAdisplay_entry in HAAdisplay_other:
-  ${ HAAdisplay_entry['display_record'].show() }
+  * ${ HAAdisplay_entry['display_record'].show() }
+  
   %endfor
   
   ### Community Housing
