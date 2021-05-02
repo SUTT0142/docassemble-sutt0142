@@ -14,7 +14,7 @@ code: |
     # - Accommodation for single or family
     # OR
     # - manages pets 
-    if ( HAAagency['pets_test'] ) or ( HAAagency['age_test'] and HAAagency['gender_test'] and HAAagency['location_test'] and HAAagency['atsi_test'] and HAAagency['families_test'] ):
+    if ( HAAagency['pets_test'] ) or ( HAAagency['age_test'] and HAAagency['gender_test'] and HAAagency['location_test'] and HAAagency['atsi2_test'] and HAAagency['families_test'] ) or ( HAAagency['age_test'] and HAAagency['gender_test'] and HAAagency['location_test'] and HAAagency['atsi_test'] and HAAagency['families_test'] ):
       # Append to qualifying agencies
       HAAqualifying_agencies.append(HAAagency)
       MJFi += 1
@@ -78,6 +78,13 @@ code: |
     HAA_agencylist[i]['atsi_test'] = True
   else:
     HAA_agencylist[i]['atsi_test'] = False
+---
+code: |
+  if HAAabor and HAA_agencylist[i].item('indigenous') == True:
+    # Test is always true if person identifies as ATSI
+    HAA_agencylist[i]['atsi2_test'] = True
+  else:
+    HAA_agencylist[i]['atsi2_test'] = False
 ---
 # Match family status
 code: |
@@ -180,3 +187,4 @@ code: |
     HAA_agencylist[i]['family_specific'] = True
   else:
     HAA_agencylist[i]['family_specific'] = False
+---

@@ -52,7 +52,7 @@ code: |
     if HAAagency.item('printed') == True:
       # Don't do anything if already printed
       pass
-    elif HAAagency.item('atsi_test') == True:
+    elif HAAagency.item('atsi2_test') == True:
       # We add the text to display in the display list
       HAAdisplay_atsi.append(HAAagency)
       # And mark it as displayed
